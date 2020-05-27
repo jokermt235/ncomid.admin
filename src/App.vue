@@ -1,4 +1,3 @@
-
 <template>
   <div id="app">
     <HomePage></HomePage>
@@ -13,4 +12,3 @@ export default {
   }
 }
 </script>
-d
