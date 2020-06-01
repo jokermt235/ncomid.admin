@@ -12,7 +12,7 @@
   </div>
 </template>
 <script>
-import styles from '@/assets/css/bootstrap.min.css';
+import style from '@/assets/css/bootstrap.min.css';
 import TopMenu from '@/components/TopMenu.vue';
 import LeftPanel from '@/components/LeftPanel.vue';
 import MiddleContent from '@/components/MiddleContent.vue';
@@ -20,7 +20,8 @@ export default {
   components: {
     TopMenu,
     LeftPanel,
-    MiddleContent
+    MiddleContent,
+    style
   }
 }
 </script>
