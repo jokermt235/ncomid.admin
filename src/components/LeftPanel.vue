@@ -1,18 +1,21 @@
 <template>
-  <div class="LeftPanel">
-    <ul class="nav flex-column">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
-</ul>
-  </div>
+    <div class="LeftPanel">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Баннеры</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Новости</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Сообщения</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Фотогалерея</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Отзывы</a>
+            </li>
+        </ul>
+    </div>
 </template>
