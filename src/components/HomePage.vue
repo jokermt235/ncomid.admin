@@ -1,15 +1,17 @@
 <template>
-  <div>
-    <TopMenu></TopMenu>
-    <div class="row flex-xl-nowrap">
-        <div class="col-md-3 col-xl-2 bd-sidebar">
-            <LeftPanel></LeftPanel>
-        </div>
-        <div class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
-            <MiddleContent></MiddleContent>
+    <div>
+        <TopMenu></TopMenu>
+        <div class="ContentFluid">
+            <div class="row flex-xl-nowrap">
+                <div class="col-md-3 col-xl-2 bd-sidebar">
+                    <LeftPanel></LeftPanel>
+                </div>
+                <div class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+                    <MiddleContent></MiddleContent>
+                </div>
+            </div>
         </div>
     </div>
-  </div>
 </template>
 <script>
 import style from '@/assets/css/bootstrap.min.css';
@@ -20,8 +22,13 @@ export default {
   components: {
     TopMenu,
     LeftPanel,
-    MiddleContent,
-    style
+    MiddleContent
   }
 }
 </script>
+<style scoped>
+    .ContentFluid{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+</style>

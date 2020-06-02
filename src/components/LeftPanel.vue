@@ -4,9 +4,10 @@
             <input type="search" class="form-control ds-input" id="search-input" 
             placeholder="Search..."/>
         </form>
+        <hr/>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Баннеры</a>
+                <a class="nav-link active" href="#" @click="loadBanners">Баннеры</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Новости</a>
@@ -23,10 +24,17 @@
         </ul>
     </div>
 </template>
+<script>
+    export default{
+        methods:{
+            loadBanners(){
+            }
+        }
+    }
+</script>
 <style scoped>
-    LeftPanel{
+    .LeftPanel{
         margin-top:16px;
         margin-left:16px;
-        border-right:solid 1px gray;
     }
 </style>
