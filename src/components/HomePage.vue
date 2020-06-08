@@ -30,24 +30,28 @@
                     </div>
                 </div>
                 <div class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
-                    <MiddleContent></MiddleContent>
+                    <div :is="componentToLoad">{{componentToLoad}}</div>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script>
-import style from '@/assets/css/bootstrap.min.css';
 import TopMenu from '@/components/TopMenu.vue';
-import MiddleContent from '@/components/MiddleContent.vue';
+import Banners from '@/components/Banners.vue';
 export default {
+    data(){
+        return {
+            componentToLoad : null
+        }
+    },
     components: {
         TopMenu,
-        MiddleContent
+        Banners
     },
     methods:{
         loadBanners(){
-            alert("HELLO FROM COMPONENT");
+            this.componentToLoad = Banners;
         }
     }
 }
