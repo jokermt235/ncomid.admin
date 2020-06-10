@@ -15,10 +15,17 @@
                                 <a class="active" href="#" @click="loadBanners">Баннеры</a>
                                 <ul class="list-group">
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                        Создать
-                                        <span class="badge badge-primary badge-pill">14</span>
+                                        <a href="#" @click="loadBanners">Список</a>
+                                    </li> 
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="#" @click="bannersFormLoad">Создать + </a>
                                     </li>
-                                    <li class="list-group-item">Статистика</li>
+                                    <li class="list-group-item">
+                                        <a href="#">
+                                            Статистика
+                                        </a>
+                                        <span class="badge badge-primary badge-pill">0</span>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
@@ -36,7 +43,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content">
+                <div class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content mt-3">
                     <div :is="componentToLoad">{{componentToLoad}}</div>
                 </div>
             </div>
@@ -46,6 +53,7 @@
 <script>
 import TopMenu from '@/components/TopMenu.vue';
 import Banners from '@/components/Banners.vue';
+import BannersForm from '@/components/BannersForm';
 export default {
     data(){
         return {
@@ -54,11 +62,15 @@ export default {
     },
     components: {
         TopMenu,
-        Banners
+        Banners,
+        BannersForm
     },
     methods:{
         loadBanners(){
             this.componentToLoad = Banners;
+        },
+        bannersFormLoad(){
+            this.componentToLoad = BannersForm;
         }
     }
 }
