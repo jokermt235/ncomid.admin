@@ -3,28 +3,35 @@
         <TopMenu></TopMenu>
         <div class="ContentFluid">
             <div class="row flex-xl-nowrap">
-                <div class="col-md-3 col-xl-2 bd-sidebar">
+                <div class="col-md-3 col-xl-3 bd-sidebar">
                     <div class="LeftPanel">
                         <form class="bd-search d-flex align-items-center">
                             <input type="search" class="form-control ds-input" id="search-input" 
                             placeholder="Search..."/>
                         </form>
                         <hr/>
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#" @click="loadBanners">Баннеры</a>
+                        <ul class="list-group flex-content">
+                            <li class="list-group-item">
+                                <a class="active" href="#" @click="loadBanners">Баннеры</a>
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        Создать
+                                        <span class="badge badge-primary badge-pill">14</span>
+                                    </li>
+                                    <li class="list-group-item">Статистика</li>
+                                </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Новости</a>
+                            <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                <a class="" href="#">Новости</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Сообщения</a>
+                            <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                <a class="" href="#">Сообщения</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Фотогалерея</a>
+                            <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                <a class="" href="#">Фотогалерея</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Отзывы</a>
+                            <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                <a class="" href="#">Отзывы</a>
                             </li>
                         </ul>
                     </div>
