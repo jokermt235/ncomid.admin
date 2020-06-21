@@ -2,7 +2,7 @@
     <div>
         <div class="card mb-3" v-for="banner in banners" :key="banner.id">
              <img class="card-img-bottom" 
-                :src="`http://89.223.29.71/banners/images/${banner.image}`" />
+                :src="`http://localhost/banners/images/${banner.image}`" />
             <div class="card-body">
                 <h5 class="card-title">{{banner.title}}</h5>
                 <p class="card-text">{{banner.desc}}</p>
@@ -46,7 +46,7 @@ export default{
     },
     methods:{
         remove(id, image){
-            this.ins.delete("banners", {id,image}, resonse=>{
+            this.ins.delete("banners", {id,image}, response=>{
                 if(response.data){
                     this.banners =  this.banners.filter(banner=>{
                         if(banner.id != id) return true;

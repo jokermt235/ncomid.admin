@@ -1,5 +1,5 @@
 <template>
-    <form @submit.prevent="onSubmit">
+    <form @submit.prevent="onSubmit" :is="dComponent">
         <div class="form-group">
             <label for="title">Шапка баннера</label>
             <input type="input" class="form-control"
@@ -23,14 +23,19 @@
 </template>
 <script>
 import Instance from '@/lib/Instance.js';
+import Banners from '@/components/Banners.vue';
 export default{
     data(){
         return {
+            dComponent : "div",
             photoPreview:null,
             title : "",
             desc  : "",
             image : ""
         }
+    },
+    mounted(){
+        //this.dComponent = Banners;
     },
     methods:{
         fileChange(){
@@ -41,7 +46,7 @@ export default{
             let ins = new Instance();
             ins.save("banners/upload",formData,(response)=>{
                 console.log(response.data);
-                let html = `<img src="http://89.223.29.71/banners/images/${response.data}"/>`;
+                let html = `<img src="http://localhost/banners/images/${response.data}"/>`;
                 this.photoPreview = html;
                 this.image = response.data;
             },(error)=>{
@@ -51,8 +56,8 @@ export default{
         save(){
             let ins = new Instance();
             ins.save("banners",{title: this.title, desc:this.desc,image: this.image},(response)=>{
-                console.log(response);
                 if(response){
+                    this.dComponent = Banners;
                     this.$forceUpdate();
                 }
             },(error)=>{

@@ -2,9 +2,9 @@ import axios from 'axios';
 
 export default class Instance{ 
     constructor(){
-        this.root = "http://89.223.29.71:3000/api/v1/";
+        this.root = "http://localhost:3000/api/v1/";
         this.instance = axios.create({
-            baseURL: 'http://89.223.29.71:3000/api/v1/',
+            baseURL: 'http://localhost:3000/api/v1/',
             timeout: 30000,
             headers: {'x-access-token': localStorage.token}
         });

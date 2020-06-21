@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content mt-3">
-                    <div :is="componentToLoad">{{componentToLoad}}</div>
+                    <div :is="componentToLoad"></div>
                 </div>
             </div>
         </div>
