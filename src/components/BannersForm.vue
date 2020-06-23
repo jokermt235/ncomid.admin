@@ -31,11 +31,11 @@ export default{
             photoPreview:null,
             title : "",
             desc  : "",
-            image : ""
+            image : "",
+            image_url: process.env.VUE_APP_BASE_URL_IMAGE
         }
     },
     mounted(){
-        //this.dComponent = Banners;
     },
     methods:{
         fileChange(){
@@ -46,7 +46,7 @@ export default{
             let ins = new Instance();
             ins.save("banners/upload",formData,(response)=>{
                 console.log(response.data);
-                let html = `<img src="http://localhost/banners/images/${response.data}"/>`;
+                let html = `<img src="${this.image_url}${response.data}"/>`;
                 this.photoPreview = html;
                 this.image = response.data;
             },(error)=>{
@@ -62,9 +62,6 @@ export default{
             },(error)=>{
                 console.log(error);
             });
-        },
-        onSubmit(){
-            //console.log(this.desc);
         }
     }
 }

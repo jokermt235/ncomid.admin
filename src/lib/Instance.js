@@ -2,9 +2,9 @@ import axios from 'axios';
 
 export default class Instance{ 
     constructor(){
-        this.root = "http://localhost:3000/api/v1/";
+        this.root = process.env.VUE_APP_BASE_URL;
         this.instance = axios.create({
-            baseURL: 'http://localhost:3000/api/v1/',
+            baseURL: process.env.VUE_APP_BASE_URL,
             timeout: 30000,
             headers: {'x-access-token': localStorage.token}
         });

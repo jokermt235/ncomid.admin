@@ -2,7 +2,7 @@
     <div>
         <div class="card mb-3" v-for="banner in banners" :key="banner.id">
              <img class="card-img-bottom" 
-                :src="`${config.image_url}${banner.image}`" />
+                :src="`${image_url}${banner.image}`" />
             <div class="card-body">
                 <h5 class="card-title">{{banner.title}}</h5>
                 <p class="card-text">{{banner.desc}}</p>
@@ -33,6 +33,7 @@ import Instance from '@/lib/Instance.js';
 export default{
     data(){
         return {
+            image_url: process.env.VUE_APP_BASE_URL_IMAGE,
             banners : []
         }
     },
@@ -57,6 +58,9 @@ export default{
             error=>{
                 console.log(error);
             });
+        },
+        edit(id,image){
+
         }
     }
 }
