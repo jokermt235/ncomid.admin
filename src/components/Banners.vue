@@ -60,7 +60,7 @@ export default{
             });
         },
         edit(id,image){
-
+            console.log(id,image);
         }
     }
 }
