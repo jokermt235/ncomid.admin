@@ -58,7 +58,6 @@ export default{
             ins.save("banners",{title: this.title, desc:this.desc,image: this.image},(response)=>{
                 if(response){
                     this.dComponent = Banners;
-                    this.$forceUpdate();
                 }
             },(error)=>{
                 console.log(error);
