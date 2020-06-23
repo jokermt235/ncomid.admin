@@ -25,6 +25,8 @@ export default{
             password : ""
         };
     },
+    mounted(){
+    },
     methods:{
         login(){
             const instance = new Instance();

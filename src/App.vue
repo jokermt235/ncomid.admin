@@ -23,7 +23,8 @@ export default {
         LoginForm
     },
     mounted(){
-        if(localStorage.token){ 
+        console.log(process.env);
+        if(localStorage.token){
             let ins = new Instance();
             ins.verifyToken((response)=>{
                 if(response){
