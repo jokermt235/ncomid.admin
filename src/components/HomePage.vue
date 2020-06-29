@@ -46,6 +46,23 @@
                                 </ul> 
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                <a class="" href="#">Объявления</a>
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="#" @click="loadAdverts">Все Объявления</a>
+                                    </li> 
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="#" @click="advertFormLoad">создать + </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#">
+                                            статистика
+                                        </a>
+                                        <span class="badge badge-primary badge-pill">0</span>
+                                    </li>
+                                </ul> 
+                            </li>
+                            <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                 <a class="" href="#">Сообщения</a>
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
@@ -70,6 +87,8 @@ import Banners from '@/components/Banners.vue';
 import BannersForm from '@/components/BannersForm';
 import News from '@/components/News.vue';
 import NewsForm from '@/components/NewsForm';
+import Adverts from '@/components/Adverts';
+import AdvertForm from '@/components/AdvertForm';
 export default {
     data(){
         return {
@@ -81,7 +100,9 @@ export default {
         Banners,
         BannersForm,
         News,
-        NewsForm
+        NewsForm,
+        Adverts,
+        AdvertForm
     },
     methods:{
         loadBanners(){
@@ -95,6 +116,12 @@ export default {
         },
         newsFormload(){
             this.componentToLoad = NewsForm;
+        },
+        loadAdverts(){
+            this.componentToLoad = Adverts;
+        },
+        advertFormLoad(){
+            this.componentToLoad = AdvertForm;
         }
     }
 }
