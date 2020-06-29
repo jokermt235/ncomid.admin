@@ -70,6 +70,14 @@
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                 <a class="" href="#">Отзывы</a>
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="#" @click="loadReviews">Все отзывы</a>
+                                    </li> 
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="#" @click="reviewFormLoad">создать + </a>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </div>
@@ -89,6 +97,8 @@ import News from '@/components/News.vue';
 import NewsForm from '@/components/NewsForm';
 import Adverts from '@/components/Adverts';
 import AdvertForm from '@/components/AdvertForm';
+import Reviews from '@/components/Reviews';
+import ReviewForm from '@/components/ReviewForm';
 export default {
     data(){
         return {
@@ -102,7 +112,9 @@ export default {
         News,
         NewsForm,
         Adverts,
-        AdvertForm
+        AdvertForm,
+        Reviews,
+        ReviewForm
     },
     methods:{
         loadBanners(){
@@ -122,6 +134,12 @@ export default {
         },
         advertFormLoad(){
             this.componentToLoad = AdvertForm;
+        },
+        loadReviews(){
+            this.componentToLoad = Reviews;
+        },
+        reviewFormLoad(){
+            this.componentToLoad = ReviewForm;
         }
     }
 }
