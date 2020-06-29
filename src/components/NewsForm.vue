@@ -1,10 +1,9 @@
 <template>
     <form @submit.prevent="onSubmit" :is="dComponent">
         <div class="form-group">
-            <label for="title">Шапка баннера</label>
+            <label for="title">Заголовок</label>
             <input type="input" class="form-control"
-            id="title" placeholder="Шапка"
-            name="title" v-model="title">
+            id="title" placeholder="Заголовок новостей" name="title" v-model="title">
         </div>
         <div class="form-group">
             <label for="desc">Описание</label>
@@ -14,7 +13,7 @@
         <div class="form-group" id="photoPreview" v-html="photoPreview">
         </div>
         <div class="form-group">
-            <label for="image">Изображение баннера</label>
+            <label for="image">Изображение новости</label>
             <input type="file" class="form-control-file" @change="fileChange" id="image">
             <input type="hidden" v-model="image"/>
         </div>
@@ -23,7 +22,7 @@
 </template>
 <script>
 import Instance from '@/lib/Instance.js';
-import Banners from '@/components/Banners.vue';
+import News from '@/components/News.vue';
 export default{
     data(){
         return {
@@ -32,7 +31,7 @@ export default{
             title : "",
             desc  : "",
             image : "",
-            image_url: process.env.VUE_APP_BASE_URL_IMAGE + "banners/"
+            image_url: process.env.VUE_APP_BASE_URL_IMAGE + "news/"
         }
     },
     mounted(){
@@ -44,7 +43,7 @@ export default{
             formData.append("images", photo);
             console.log(formData);
             let ins = new Instance();
-            ins.save("banners/upload",formData,(response)=>{
+            ins.save("news/upload",formData,(response)=>{
                 console.log(response.data);
                 let html = `<img src="${this.image_url}${response.data}"/>`;
                 this.photoPreview = html;
@@ -55,9 +54,9 @@ export default{
         },
         save(){
             let ins = new Instance();
-            ins.save("banners",{title: this.title, desc:this.desc,image: this.image},(response)=>{
+            ins.save("news",{title: this.title, desc:this.desc,image: this.image},(response)=>{
                 if(response){
-                    this.dComponent = Banners;
+                    this.dComponent = News;
                 }
             },(error)=>{
                 console.log(error);

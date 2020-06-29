@@ -15,14 +15,14 @@
                                 <a class="active" href="#" @click="loadBanners">Баннеры</a>
                                 <ul class="list-group">
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                        <a href="#" @click="loadBanners">Список</a>
+                                        <a href="#" @click="loadBanners">Все баннеры</a>
                                     </li> 
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                        <a href="#" @click="bannersFormLoad">Создать + </a>
+                                        <a href="#" @click="bannersFormLoad">создать + </a>
                                     </li>
                                     <li class="list-group-item">
                                         <a href="#">
-                                            Статистика
+                                            статистика
                                         </a>
                                         <span class="badge badge-primary badge-pill">0</span>
                                     </li>
@@ -30,6 +30,20 @@
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                 <a class="" href="#">Новости</a>
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="#" @click="loadNews">Все новости</a>
+                                    </li> 
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="#" @click="newsFormload">создать + </a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#">
+                                            статистика
+                                        </a>
+                                        <span class="badge badge-primary badge-pill">0</span>
+                                    </li>
+                                </ul> 
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                 <a class="" href="#">Сообщения</a>
@@ -54,6 +68,8 @@
 import TopMenu from '@/components/TopMenu.vue';
 import Banners from '@/components/Banners.vue';
 import BannersForm from '@/components/BannersForm';
+import News from '@/components/News.vue';
+import NewsForm from '@/components/NewsForm';
 export default {
     data(){
         return {
@@ -63,7 +79,9 @@ export default {
     components: {
         TopMenu,
         Banners,
-        BannersForm
+        BannersForm,
+        News,
+        NewsForm
     },
     methods:{
         loadBanners(){
@@ -71,6 +89,12 @@ export default {
         },
         bannersFormLoad(){
             this.componentToLoad = BannersForm;
+        },
+        loadNews(){
+            this.componentToLoad = News;
+        },
+        newsFormload(){
+            this.componentToLoad = NewsForm;
         }
     }
 }
