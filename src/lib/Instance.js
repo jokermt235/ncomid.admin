@@ -32,7 +32,6 @@ export default class Instance{
             _success(response);
         }).catch((error)=>{
             _error(error);
-            //location.reload();
         });
     }
     all(module, data, _success, _error){
@@ -43,10 +42,18 @@ export default class Instance{
         })
     }
     delete(module, data,_success, _error){
-        this.instance.delete(module + "/" + data.id + "/" + data.image).then((response)=>{
-            _success(response);
-        }).catch((error)=>{
-            _error(error);
-        })
+        if(data.image){
+            this.instance.delete(module + "/" + data.id + "/" + data.image).then((response)=>{
+                _success(response);
+            }).catch((error)=>{
+                _error(error);
+            });
+        }else{
+            this.instance.delete(module + "/" + data.id).then((response)=>{
+                _success(response);
+            }).catch((error)=>{
+                _error(error);
+            });
+        }
     }
 }

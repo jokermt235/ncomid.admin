@@ -64,6 +64,11 @@
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                 <a class="" href="#">Сообщения</a>
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="#" @click="messagesLoad">Все сообщения</a>
+                                    </li> 
+                                </ul>
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                 <a class="" href="#">Фотогалерея</a>
@@ -99,6 +104,7 @@ import Adverts from '@/components/Adverts';
 import AdvertForm from '@/components/AdvertForm';
 import Reviews from '@/components/Reviews';
 import ReviewForm from '@/components/ReviewForm';
+import Messages from '@/components/Messages';
 export default {
     data(){
         return {
@@ -114,7 +120,8 @@ export default {
         Adverts,
         AdvertForm,
         Reviews,
-        ReviewForm
+        ReviewForm,
+        Messages
     },
     methods:{
         loadBanners(){
@@ -140,6 +147,9 @@ export default {
         },
         reviewFormLoad(){
             this.componentToLoad = ReviewForm;
+        },
+        messagesLoad(){
+            this.componentToLoad = Messages;
         }
     }
 }
