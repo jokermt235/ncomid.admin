@@ -49,7 +49,7 @@ export default{
             formData.append("images", photo);
             console.log(formData);
             let ins = new Instance();
-            ins.save("news/upload",formData,(response)=>{
+            ins.save("reviews/upload",formData,(response)=>{
                 console.log(response.data);
                 let html = `<img src="${this.image_url}${response.data}"/>`;
                 this.photoPreview = html;
