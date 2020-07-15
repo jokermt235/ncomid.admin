@@ -28,11 +28,11 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="list-group-item">
+                            <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                 <a class="active" href="javascript:" @click="loadPhotos">Фотогалерея</a>
                                 <ul class="list-group">
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                        <a href="#" @click="loadPhotos">Все фото</a>
+                                        <a href="javascript:" @click="loadPhotos">Все фото</a>
                                     </li> 
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                         <a href="javascript:" @click="photosFormLoad">создать + </a>
@@ -80,9 +80,6 @@
                                         <a href="#" @click="messagesLoad">Все сообщения</a>
                                     </li> 
                                 </ul>
-                            </li>
-                            <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                <a class="" href="#">Фотогалерея</a>
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                 <a class="" href="#">Отзывы</a>
