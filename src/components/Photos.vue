@@ -43,7 +43,7 @@ export default{
         remove(id, image){
             this.ins.delete("photos", {id,image}, response=>{
                 if(response.data){
-                    this.items =  this.photos.filter(item=>{
+                    this.items =  this.items.filter(item=>{
                         if(item.id != id) return true;
                     });
                 }
