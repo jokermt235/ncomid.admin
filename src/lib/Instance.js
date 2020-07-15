@@ -34,6 +34,13 @@ export default class Instance{
             _error(error);
         });
     }
+    update(module, data, _success, _error){
+        this.instance.put(module,data).then((response)=>{
+            _success(response);
+        }).catch((error)=>{
+            _error(error);
+        });
+    }
     all(module, data, _success, _error){
         this.instance.get(module,data).then((response)=>{
             _success(response);

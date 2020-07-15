@@ -28,14 +28,25 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="list-group-item">
+                                <a class="active" href="javascript:" @click="loadPhotos">Фотогалерея</a>
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="#" @click="loadPhotos">Все фото</a>
+                                    </li> 
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="javascript:" @click="photosFormLoad">создать + </a>
+                                    </li>
+                                </ul>
+                            </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                 <a class="" href="#">Новости</a>
                                 <ul class="list-group">
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                        <a href="#" @click="loadNews">Все новости</a>
+                                        <a href="javascript:" @click="loadNews">Все новости</a>
                                     </li> 
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                        <a href="#" @click="newsFormload">создать + </a>
+                                        <a href="javascript:" @click="newsFormload">создать + </a>
                                     </li>
                                     <li class="list-group-item">
                                         <a href="#">
@@ -84,6 +95,23 @@
                                     </li>
                                 </ul>
                             </li>
+                            <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                <a href="javascript:">Среднее меню</a>
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="javascript:" @click="historyLoad">История</a>
+                                    </li> 
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="javascript:" @click="historyFormLoad">создать + </a>
+                                    </li>
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="javascript:" @click="aboutLoad">О нас</a>
+                                    </li> 
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="javascript:" @click="aboutFormLoad">создать + </a>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -105,6 +133,12 @@ import AdvertForm from '@/components/AdvertForm';
 import Reviews from '@/components/Reviews';
 import ReviewForm from '@/components/ReviewForm';
 import Messages from '@/components/Messages';
+import History from '@/components/History';
+import HistoryForm from '@/components/HistoryForm';
+import About from '@/components/About';
+import AboutForm from '@/components/AboutForm';
+import Photos from '@/components/Photos';
+import PhotoForm from '@/components/PhotoForm';
 export default {
     data(){
         return {
@@ -121,7 +155,13 @@ export default {
         AdvertForm,
         Reviews,
         ReviewForm,
-        Messages
+        Messages,
+        History,
+        HistoryForm,
+        About,
+        AboutForm,
+        Photos,
+        PhotoForm
     },
     methods:{
         loadBanners(){
@@ -150,6 +190,24 @@ export default {
         },
         messagesLoad(){
             this.componentToLoad = Messages;
+        },
+        historyLoad(){
+            this.componentToLoad = History;
+        },
+        historyFormLoad(){
+            this.componentToLoad = HistoryForm;
+        },
+        aboutLoad(){
+            this.componentToLoad = About;
+        },
+        aboutFormLoad(){
+            this.componentToLoad = AboutForm;
+        },
+        loadPhotos(){
+            this.componentToLoad = Photos;
+        },
+        photosFormLoad(){
+            this.componentToLoad = PhotoForm;
         }
     }
 }
