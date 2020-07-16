@@ -20,12 +20,6 @@
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                         <a href="#" @click="bannersFormLoad">создать + </a>
                                     </li>
-                                    <li class="list-group-item">
-                                        <a href="#">
-                                            статистика
-                                        </a>
-                                        <span class="badge badge-primary badge-pill">0</span>
-                                    </li>
                                 </ul>
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
@@ -70,6 +64,17 @@
                                             статистика
                                         </a>
                                         <span class="badge badge-primary badge-pill">0</span>
+                                    </li>
+                                </ul> 
+                            </li>
+                            <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                <a class="" href="#">Статистика</a>
+                                <ul class="list-group">
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="javascript:" @click="statsLoad">Вся статистика</a>
+                                    </li> 
+                                    <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                        <a href="javascript:" @click="statsFormLoad">Создать + </a>
                                     </li>
                                 </ul> 
                             </li>
@@ -136,6 +141,8 @@ import About from '@/components/About';
 import AboutForm from '@/components/AboutForm';
 import Photos from '@/components/Photos';
 import PhotoForm from '@/components/PhotoForm';
+import Stats from '@/components/Stats';
+import StatsForm from '@/components/StatsForm';
 export default {
     data(){
         return {
@@ -158,7 +165,9 @@ export default {
         About,
         AboutForm,
         Photos,
-        PhotoForm
+        PhotoForm,
+        Stats,
+        StatsForm
     },
     methods:{
         loadBanners(){
@@ -205,6 +214,21 @@ export default {
         },
         photosFormLoad(){
             this.componentToLoad = PhotoForm;
+        },
+        statsLoad(){
+            this.componentToLoad = Stats;
+        },
+        statsFormLoad(){
+            StatsForm.data = ()=>{
+                return {
+                    "dComponent" : "div",
+                    id      : null,
+                    week    : "" ,
+                    month   : "",
+                    year    : ""
+                };
+            };            
+            this.componentToLoad = StatsForm;
         }
     }
 }
