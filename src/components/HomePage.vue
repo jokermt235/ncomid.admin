@@ -12,15 +12,18 @@
                         <hr/>
                         <ul class="list-group flex-content">
                             <li class="list-group-item">
-                                <a class="active" href="#" @click="loadBanners">Баннеры</a>
+                                <a class="active" href="javascript:" @click="loadBanners">Баннеры</a>
                                 <ul class="list-group">
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                        <a href="#" @click="loadBanners">Все баннеры</a>
+                                        <a href="javascript:" @click="loadBanners">Все баннеры</a>
                                     </li> 
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                        <a href="#" @click="bannersFormLoad">создать + </a>
+                                        <a href="javascript:" @click="bannersFormLoad">создать + </a>
                                     </li>
                                 </ul>
+                            </li>
+                            <li class="list-group-item">
+                                <a class="active" href="javascript:" @click="sectionsLoad">Отделения</a>
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                 <a class="active" href="javascript:" @click="loadPhotos">Фотогалерея</a>
@@ -34,7 +37,7 @@
                                 </ul>
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                <a class="" href="#">Новости</a>
+                                <a href="javascript:">Новости</a>
                                 <ul class="list-group">
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                         <a href="javascript:" @click="loadNews">Все новости</a>
@@ -43,7 +46,7 @@
                                         <a href="javascript:" @click="newsFormload">создать + </a>
                                     </li>
                                     <li class="list-group-item">
-                                        <a href="#">
+                                        <a href="javascript:">
                                             статистика
                                         </a>
                                         <span class="badge badge-primary badge-pill">0</span>
@@ -51,13 +54,13 @@
                                 </ul> 
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                <a class="" href="#">Объявления</a>
+                                <a href="javascript:">Объявления</a>
                                 <ul class="list-group">
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                        <a href="#" @click="loadAdverts">Все Объявления</a>
+                                        <a href="javascript:" @click="loadAdverts">Все Объявления</a>
                                     </li> 
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                        <a href="#" @click="advertFormLoad">создать + </a>
+                                        <a href="javascript:" @click="advertFormLoad">создать + </a>
                                     </li>
                                     <li class="list-group-item">
                                         <a href="#">
@@ -68,7 +71,7 @@
                                 </ul> 
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                <a class="" href="#">Статистика</a>
+                                <a class="" href="javascript:">Статистика</a>
                                 <ul class="list-group">
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                         <a href="javascript:" @click="statsLoad">Вся статистика</a>
@@ -79,24 +82,27 @@
                                 </ul> 
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                <a class="" href="#">Сообщения</a>
+                                <a href="javascript:">Сообщения</a>
                                 <ul class="list-group">
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                        <a href="#" @click="messagesLoad">Все сообщения</a>
+                                        <a href="javascript:" @click="messagesLoad">Все сообщения</a>
                                     </li> 
                                 </ul>
                             </li>
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                <a class="" href="#">Отзывы</a>
+                                <a href="javascript:">Отзывы</a>
                                 <ul class="list-group">
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                        <a href="#" @click="loadReviews">Все отзывы</a>
+                                        <a href="javascript:" @click="loadReviews">Все отзывы</a>
                                     </li> 
                                     <li class="list-group-item" style="padding: .35rem 1.25rem;">
-                                        <a href="#" @click="reviewFormLoad">создать + </a>
+                                        <a href="javascript:" @click="reviewFormLoad">создать + </a>
                                     </li>
                                 </ul>
                             </li>
+                            <li class="list-group-item" style="padding: .35rem 1.25rem;">
+                                <a href="javascript:" @click="linksLoad">Ссылки</a>
+                            </li>    
                             <li class="list-group-item" style="padding: .35rem 1.25rem;">
                                 <a href="javascript:">Среднее меню</a>
                                 <ul class="list-group">
@@ -143,6 +149,8 @@ import Photos from '@/components/Photos';
 import PhotoForm from '@/components/PhotoForm';
 import Stats from '@/components/Stats';
 import StatsForm from '@/components/StatsForm';
+import Sections from '@/components/Sections';
+import Links from '@/components/Links';
 export default {
     data(){
         return {
@@ -153,6 +161,7 @@ export default {
         TopMenu,
         Banners,
         BannersForm,
+        Sections,
         News,
         NewsForm,
         Adverts,
@@ -167,7 +176,8 @@ export default {
         Photos,
         PhotoForm,
         Stats,
-        StatsForm
+        StatsForm,
+        Links
     },
     methods:{
         loadBanners(){
@@ -229,6 +239,12 @@ export default {
                 };
             };            
             this.componentToLoad = StatsForm;
+        },
+        sectionsLoad(){
+            this.componentToLoad = Sections;
+        },
+        linksLoad(){
+            this.componentToLoad = Links;
         }
     }
 }
