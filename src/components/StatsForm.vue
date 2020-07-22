@@ -25,6 +25,9 @@ export default{
     mounted(){
         this.ins = new Instance();
     },
+    onUpdated(){
+        console.log(this.id);
+    },
     methods:{
         save(){
             this.dComponent = Stats;

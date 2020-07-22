@@ -21,13 +21,11 @@
     </div>
 </template>
 <script>
-import Instance from '@/lib/Instance.js';
 import LinksForm from '@/components/LinksForm';
 import LinksAll from '@/components/LinksAll';
 export default{
     data(){
         return {
-            items : [],
             dComponentForm : null,
             dComponent : null
         }
@@ -38,13 +36,7 @@ export default{
     },
     mounted(){
        this.dComponentForm = false;
-        this.dComponent = LinksAll;
-        this.ins = new Instance();
-        this.ins.all("links", {}, (response)=>{
-            this.items = response.data;
-        }, (error)=>{
-            console.log(error);
-        });
+       this.dComponent = LinksAll;
     },
     methods:{ 
         componentFormLoad(){

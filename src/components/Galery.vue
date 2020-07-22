@@ -21,40 +21,31 @@
     </div>
 </template>
 <script>
-import Form from '@/components/StatsForm';
-import All from '@/components/StatsAll';
+import PhotoForm from '@/components/PhotoForm';
+import Photos from '@/components/Photos';
 export default{
     data(){
         return {
-            dComponentForm : false,
-            dComponent : false
+            dComponentForm : null,
+            dComponent : null
         }
     },
     components : {
-        All,
-        Form
+        Photos,
+        PhotoForm
     },
     mounted(){
        this.dComponentForm = false;
-       this.dComponent = All;
+       this.dComponent = Photos;
     },
     methods:{ 
         componentFormLoad(){
-            Form.data = ()=>{
-                return {
-                    "dComponent" : "div",
-                    id      : null,
-                    week    : "" ,
-                    month   : "",
-                    year    : ""
-                };
-            };
-            this.dComponentForm = Form;
+            this.dComponentForm = PhotoForm;
             this.dComponent = false;
         },
         componentAllLoad(){
             this.dComponentForm = false;
-            this.dComponent = All;
+            this.dComponent = Photos;
         }
     }
 }
