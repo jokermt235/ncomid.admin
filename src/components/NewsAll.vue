@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="card mb-3" v-for="item in items" :key="item.id">
-             <img class="card-img-bottom" 
+             <img class="card-img-bottom" v-if="item.image"
                 :src="`${image_url}${item.image}`" />
             <div class="card-body">
                 <h5 class="card-title">{{item.title}}</h5>
