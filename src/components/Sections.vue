@@ -38,7 +38,7 @@ export default{
         SectionsForm
     },
     mounted(){
-       this.dSectionsForm = false;
+        this.dSectionsForm = false;
         this.dSections = SectionsAll;
         this.ins = new Instance();
         this.ins.all("sections", {}, (response)=>{
