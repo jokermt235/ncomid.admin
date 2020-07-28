@@ -2,9 +2,11 @@
     <div>
         <div class="card mb-3" v-for="item in items" :key="item.id">
              <img class="card-img-bottom" 
-                :src="`${image_url}${item.image}`" />
+                :src="`${image_url}${item.image}`" style="width:256px;height:auto" />
             <div class="card-body">
-                <h5 class="card-title">{{item.title}}</h5>
+                <h5 class="card-title">{{item.titleRU}}</h5>
+                <h5 class="card-title">{{item.titleKG}}</h5>
+                <h5 class="card-title">{{item.titleEN}}</h5>
                 <p class="card-text">
                     <small class="text-muted">
                         Обновлено

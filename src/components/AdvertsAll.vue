@@ -1,9 +1,36 @@
-<template>
+<template> 
     <div>
+        <ul class="nav  nav-tabs mt-3">
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:" @click="showRU">
+                &#9779; RU
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:" @click="showKG">
+                    &#9779; KG
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:" @click="showEN">
+                    &#9779; EN
+                </a>
+            </li>
+        </ul>
         <div class="card mb-3" v-for="item in items" :key="item.id">
+            <div class="card-body" v-if="dComponentRU">
+                <h5 class="card-title">{{item.titleRU}}</h5>
+                <p class="card-text">{{item.descRU}}</p> 
+            </div>
+            <div class="card-body" v-if="dComponentKG">
+                <h5 class="card-title">{{item.titleKG}}</h5>
+                <p class="card-text">{{item.descKG}}</p>
+            </div>
+            <div class="card-body" v-if="dComponentEN">
+                <h5 class="card-title">{{item.titleEN}}</h5>
+                <p class="card-text">{{item.descEN}}</p> 
+            </div>
             <div class="card-body">
-                <h5 class="card-title">{{item.title}}</h5>
-                <p class="card-text">{{item.desc}}</p>
                 <p class="card-text">
                     <small class="text-muted">
                         Обновлено
@@ -31,11 +58,15 @@ import Instance from '@/lib/Instance.js';
 export default{
     data(){
         return {
+            dComponentRU : false,
+            dComponentKG : false,
+            dComponentEN : false,
             items : []
         }
     },
     mounted(){
         this.ins = new Instance();
+        this.dComponentRU = true;
         this.ins.all("adverts", {}, (response)=>{
             this.items = response.data;
         }, (error)=>{
@@ -55,6 +86,22 @@ export default{
             error=>{
                 console.log(error);
             });
+        },
+        showRU(){
+            this.dComponentRU = true;
+            this.dComponentKG = false;
+            this.dComponentEN = false;
+            console.log("From parent");
+        },
+        showKG(){
+            this.dComponentKG = true;
+            this.dComponentRU = false;
+            this.dComponentEN = false;
+        },
+        showEN(){
+            this.dComponentKG = false;
+            this.dComponentRU = false;
+            this.dComponentEN = true;
         }
     }
 }

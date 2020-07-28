@@ -1,12 +1,33 @@
 <template>
     <div>
+        <ul class="nav  nav-tabs mt-3">
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:" @click="showRU">
+                &#9779; RU
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:" @click="showKG">
+                    &#9779; KG
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:" @click="showEN">
+                    &#9779; EN
+                </a>
+            </li>
+        </ul>
         <div class="card mb-3" v-for="item in items" :key="item.id">
              <img class="card-img-bottom ims"  
                 :src="`${image_url}${item.image}`" />
             <div class="card-body">
                 <h5 class="card-title">{{item.username}}</h5>
-                <p class="card-text"><b>{{item.desc}}</b></p>
-                <p class="card-text">{{item.userType}}</p>
+                <p class="card-text" v-if="dComponentRU"><b>{{item.descRU}}</b></p>
+                <p class="card-text" v-if="dComponentKG"><b>{{item.descKG}}</b></p>
+                <p class="card-text" v-if="dComponentEN"><b>{{item.descEN}}</b></p>
+                <p class="card-text">{{item.userType}}</p> 
+            </div>
+            <div class="card-body">
                 <p class="card-text">
                     <small class="text-muted">
                         Обновлено
@@ -34,6 +55,9 @@ import Instance from '@/lib/Instance.js';
 export default{
     data(){
         return {
+            dComponentRU : false,
+            dComponentKG : false,
+            dComponentEN : false,
             image_url: process.env.VUE_APP_BASE_URL_IMAGE + "reviews/",
             items : []
         }
@@ -45,6 +69,7 @@ export default{
         }, (error)=>{
             console.log(error);
         });
+        this.dComponentRU = true;
     },
     methods:{
         remove(id, image){
@@ -62,6 +87,21 @@ export default{
         },
         edit(id,image){
             console.log(id,image);
+        },
+        showRU(){
+            this.dComponentRU = true;
+            this.dComponentKG = false;
+            this.dComponentEN = false;
+        },
+        showKG(){
+            this.dComponentRU = false;
+            this.dComponentKG = true;
+            this.dComponentEN = false;
+        },
+        showEN(){
+            this.dComponentRU = false;
+            this.dComponentKG = false;
+            this.dComponentEN = true;
         }
     }
 }

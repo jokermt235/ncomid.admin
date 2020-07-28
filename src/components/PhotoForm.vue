@@ -1,10 +1,16 @@
 <template>
     <form @submit.prevent="onSubmit" :is="dComponent">
         <div class="form-group">
-            <label for="title">Фото текст</label>
-            <input type="input" class="form-control"
-            id="title" placeholder="Шапка"
-            name="title" v-model="title">
+            <label for="title">Фото текст RU</label>
+            <input type="input" class="form-control" placeholder="Шапка" v-model="titleRU">
+        </div>
+        <div class="form-group">
+            <label for="title">Фото текст KG</label>
+            <input type="input" class="form-control" placeholder="Шапка" v-model="titleKG">
+        </div>
+        <div class="form-group">
+            <label for="title">Фото текст EN</label>
+            <input type="input" class="form-control" placeholder="Шапка" v-model="titleEN">
         </div>
         <div class="form-group" id="photoPreview" v-html="photoPreview">
         </div>
@@ -24,7 +30,9 @@ export default{
         return {
             dComponent : "div",
             photoPreview:null,
-            title : "",
+            titleRU : "",
+            titleKG : "",
+            titleEN : "",
             image : "",
             image_url: process.env.VUE_APP_BASE_URL_IMAGE + "photos/"
         }
@@ -39,7 +47,7 @@ export default{
             let ins = new Instance();
             ins.save("photos/upload",formData,(response)=>{
                 console.log(response.data);
-                let html = `<img src="${this.image_url}${response.data}"/>`;
+                let html = `<img src="${this.image_url}${response.data}" style="width:256px; height:auto"/>`;
                 this.photoPreview = html;
                 this.image = response.data;
             },(error)=>{
@@ -48,7 +56,13 @@ export default{
         },
         save(){
             let ins = new Instance();
-            ins.save("photos",{title: this.title,image: this.image},(response)=>{
+            ins.save("photos",
+                {
+                    titleRU : this.titleRU,
+                    titleKG : this.titleKG,
+                    titleEN : this.titleEN,
+                    image: this.image
+                },(response)=>{
                 if(response){
                     this.dComponent = Photos;
                 }

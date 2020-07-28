@@ -11,9 +11,16 @@
             id="title" placeholder="Мамаша" name="userType" v-model="userType">
         </div>
         <div class="form-group">
-            <label for="desc">Отзыв</label>
-            <textarea class="form-control" id="desc" rows="3" placeholder="Отзыв сообщение"
-            name="desc" v-model="desc"></textarea>
+            <label for="desc">Отзыв RU</label>
+            <textarea class="form-control" rows="3" placeholder="Отзыв сообщение" v-model="descRU"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="desc">Отзыв KG</label>
+            <textarea class="form-control" rows="3" placeholder="Отзыв сообщение" v-model="descKG"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="desc">Отзыв EN</label>
+            <textarea class="form-control" rows="3" placeholder="Отзыв сообщение" v-model="descEN"></textarea>
         </div>
         <div class="form-group" id="photoPreview" v-html="photoPreview">
         </div>
@@ -34,7 +41,9 @@ export default{
             dComponent : "div",
             photoPreview:null,
             username : "",
-            desc  : "",
+            descRU: "",
+            descKG: "",
+            descEN: "",
             image : "",
             userType: "",
             image_url: process.env.VUE_APP_BASE_URL_IMAGE + "reviews/"
@@ -51,7 +60,7 @@ export default{
             let ins = new Instance();
             ins.save("reviews/upload",formData,(response)=>{
                 console.log(response.data);
-                let html = `<img src="${this.image_url}${response.data}"/>`;
+                let html = `<img src="${this.image_url}${response.data}" style="width:128px;height:auto"/>`;
                 this.photoPreview = html;
                 this.image = response.data;
             },(error)=>{
@@ -60,7 +69,16 @@ export default{
         },
         save(){
             let ins = new Instance();
-            ins.save("reviews",{username: this.username, desc:this.desc,userType:this.userType,image: this.image},(response)=>{
+            ins.save("reviews",
+                {
+                    username: this.username, 
+                    descRU : this.descRU,
+                    descKG : this.descKG,
+                    descEN : this.descEN,
+                    userType:this.userType,
+                    image: this.image
+                },
+                (response)=>{
                 if(response){
                     this.dComponent = Reviews;
                 }

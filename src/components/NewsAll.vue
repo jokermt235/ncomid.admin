@@ -38,7 +38,7 @@
                 <a href="javascript:">Описание EN</a>
                 <p class="card-text" v-html="item.descEN"></p> 
             </div>
-            <div>
+            <div class="card-body">
                 <p class="card-text">
                     <small class="text-muted">
                         Обновлено
