@@ -26,11 +26,15 @@ export default{
             dComponentEN : false
         };
     },
+    created(){
+        console.log("Created parent");
+    },
     methods :{
         showRU(){
             this.dComponentRU = true;
             this.dComponentKG = false;
             this.dComponentEN = false;
+            console.log("From parent");
         },
         showKG(){
             this.dComponentKG = true;
