@@ -9,6 +9,9 @@ export default class Instance{
             headers: {'x-access-token': localStorage.token}
         });
     }
+    setHeader(key, value){
+        this.instance.defaults.headers[key] = value;
+    }
     getJSON(module, data, callback){
         let url = this.root + module;
         axios({

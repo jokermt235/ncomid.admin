@@ -1,44 +1,39 @@
 <template>
-    <div :is="dComponent">
+    <div> 
+        <ul class="nav justify-content-end nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:" @click="componentAllLoad">
+                &#x2630; Список
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:" @click="componentFormLoad">
+                    &#x271A; Создать
+                </a>
+            </li> 
+        </ul>    
+        <div :is="dComponent">
+        </div>
     </div>
 </template>
 <script>
-import Instance from '@/lib/Instance.js';
-import HistoryForm from '@/components/HistoryForm.vue';
+import All from '@/components/HistoryAll';
+import Form from '@/components/HistoryForm';
 export default{
     data(){
         return {
-            dComponent : "div",
-            item : {
-                descRU : "",
-                descKG : "",
-                descEN : ""
-            }
+            dComponent : null
         }
     },
     mounted(){
-        this.ins = new Instance();
-        this.ins.all("history", {}, (response)=>{
-            this.item = response.data;
-            console.log(response.data);
-        }, (error)=>{
-            console.log(error);
-        });
+        this.dComponent = All;
     },
     methods:{
-        remove(){
-            this.ins.delete("history", {id:null}, response=>{
-                if(response.data){
-                    this.item = {};
-                }
-                console.log(response);
-            },
-            error=>{
-                console.log(error);
-            });
+        componentAllLoad(){
+            this.dComponent = All;
         },
-        loadForm(){
-            this.dComponent = HistoryForm;
+        componentFormLoad(){
+            this.dComponent = Form;
         }
     }
 }

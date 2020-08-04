@@ -21,9 +21,6 @@
 export default{
     data(){
         return {
-            dComponentRU : false,
-            dComponentKG : false,
-            dComponentEN : false
         };
     },
     created(){
@@ -31,20 +28,13 @@ export default{
     },
     methods :{
         showRU(){
-            this.dComponentRU = true;
-            this.dComponentKG = false;
-            this.dComponentEN = false;
-            console.log("From parent");
+            this.$emit("showRU", true);
         },
         showKG(){
-            this.dComponentKG = true;
-            this.dComponentRU = false;
-            this.dComponentEN = false;
+            this.$emit("showKG", true);
         },
         showEN(){
-            this.dComponentKG = false;
-            this.dComponentRU = false;
-            this.dComponentEN = true;
+            this.$emit("showEN", true);
         }
     }
 }

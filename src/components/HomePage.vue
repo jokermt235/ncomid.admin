@@ -144,18 +144,6 @@ export default {
         statsLoad(){
             this.componentToLoad = Stats;
         },
-        /*statsFormLoad(){
-            StatsForm.data = ()=>{
-                return {
-                    "dComponent" : "div",
-                    id      : null,
-                    week    : "" ,
-                    month   : "",
-                    year    : ""
-                };
-            };            
-            this.componentToLoad = StatsForm;
-        },*/
         sectionsLoad(){
             this.componentToLoad = Sections;
         },
