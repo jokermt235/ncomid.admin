@@ -1,5 +1,13 @@
 <template>
-    <form @submit.prevent="onSubmit" :is="dComponent">
+    <div>
+        <div class="alert alert-success" role="alert" v-if="success">
+            {{message}}
+        </div>
+        <div class="alert alert-danger" role="alert" v-if="danger">
+            {{message}}
+        </div>
+        <img :src="image_url + '/' + image" width="128px" height="128px"/>
+        <ImageUpload :module="module" @imageChanged="imageUploadChanged"></ImageUpload>
         <div class="form-group">
             <label for="title">Заголовок RU</label>
             <input type="input" class="form-control"
@@ -21,35 +29,48 @@
             name="desc" v-model="link"></textarea>
         </div>
         <button type="submit" class="btn btn-primary" @click="save">Отправить</button>
-    </form>
+    </div>
 </template>
 <script>
 import Instance from '@/lib/Instance.js';
-import LinksAll from '@/components/LinksAll.vue';
+import ImageUpload from '@/components/ImageUpload';
 export default{
     data(){
         return {
-            dComponent : "div",
             titleRU : "",
             titleKG : "",
             titleEN : "",
-            link  : ""
+            link  : "",
+            image : "",
+            success  : false,
+            danger  : false,
+            image_url : process.env.VUE_APP_BASE_URL_IMAGE + "links/",
+            module : "links"
         }
+    },
+    components : {
+        ImageUpload
     },
     mounted(){
     },
     methods:{
         save(){
             let ins = new Instance();
-            ins.save("links",{titleRU: this.titleRU, titleKG: this.titleKG, titleEN : this.titleEN, link:this.link},(response)=>{
+            ins.save("links",{titleRU: this.titleRU, titleKG: this.titleKG, titleEN : this.titleEN, link:this.link,image:this.image},(response)=>{
                 if(response){
-                    this.dComponent = LinksAll;
+                    this.message = "Успешно сохранено проверьте список";
+                    this.success = true;
+                    this.danger = false;
                 }
             },(error)=>{
                 console.log(error);
+                this.success = false;
+                this.danger = true;
+                this.message = error;
             });
         },
-        onSubmit(){
+        imageUploadChanged(img){
+            this.image = img;
         }
     }
 }
